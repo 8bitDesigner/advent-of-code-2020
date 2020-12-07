@@ -1,5 +1,4 @@
-const fs = require('fs')
-const lines = fs.readFileSync('./input', 'utf8').split('\n').map(l => parseInt(l, 10))
+const lines = require('../lib/utils').lines(__dirname).map(l => parseInt(l, 10))
 let found
 
 lines.forEach(line => {
