@@ -15,17 +15,21 @@ function run (day, part, announce = true) {
   require(path.join(__dirname, pad(day), `${part}.js`))
 }
 
-if (validDay(day) && validPart(part)) {
-  run(day, part, false)
-} else if (validDay(day)) {
-  run(day, 1)
-  console.log('')
-  run(day, 2)
-} else {
-  fs.readdirSync('./').filter(file => validDay(file)).forEach(folder => {
-    run(folder, 1)
+try {
+  if (validDay(day) && validPart(part)) {
+    run(day, part, false)
+  } else if (validDay(day)) {
+    run(day, 1)
     console.log('')
-    run(folder, 2)
-    console.log('')
-  })
+    run(day, 2)
+  } else {
+    fs.readdirSync('./').filter(file => validDay(file)).forEach(folder => {
+      run(folder, 1)
+      console.log('')
+      run(folder, 2)
+      console.log('')
+    })
+  }
+} catch (e) {
+  console.error(e.message)
 }
