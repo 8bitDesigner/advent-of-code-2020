@@ -1,5 +1,5 @@
 /* eslint-disable no-fallthrough */
-const program = require('../lib/lines.js')()
+const program = require('../lib/utils.js').lines(__dirname)
 
 function toInt (str) {
   const [, sign, num] = str.match(/([+-])(\d+)/)
@@ -64,9 +64,7 @@ while (result.exitCode !== 0) {
   const lineNumber = indices.shift()
   const newProgram = [...program]
   newProgram[lineNumber] = rewrite(newProgram[lineNumber])
-  console.log(`Rewrote line ${lineNumber} from \`${program[lineNumber]}\` to \`${newProgram[lineNumber]}\``)
   result = run(newProgram)
 }
 
 console.log(result)
-

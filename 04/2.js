@@ -1,5 +1,4 @@
-const fs = require('fs')
-const lines = fs.readFileSync('./input', 'utf8').split('\n\n')
+const lines = require('../lib/utils.js').lines(__dirname, '\n\n')
 
 const passports = lines.map(lines => {
   return lines.split('\n').flatMap(l => l.split(' ')).map(l => l.split(':'))

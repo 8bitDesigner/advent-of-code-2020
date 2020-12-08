@@ -1,5 +1,5 @@
-const fs = require('fs')
-const map = fs.readFileSync('./input', 'utf8').split('\n').filter(l => l).map(l => l.split(''))
+const map = require('../lib/utils').lines(__dirname).map(l => l.split(''))
+
 const slopes = [
   [1, 1],
   [3, 1],

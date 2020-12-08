@@ -1,5 +1,5 @@
 /* eslint-disable no-fallthrough */
-const program = require('../lib/lines.js')()
+const program = require('../lib/utils.js').lines(__dirname)
 
 function toInt (str) {
   const [, sign, num] = str.match(/([+-])(\d+)/)

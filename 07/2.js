@@ -1,4 +1,4 @@
-const lines = require('../lib/lines.js')()
+const lines = require('../lib/utils.js').lines(__dirname)
 const repeat = (count, word) => new Array(parseInt(count, 10)).fill(word)
 
 // dark violet bags contain no other bags.

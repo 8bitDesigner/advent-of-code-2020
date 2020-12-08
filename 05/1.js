@@ -1,5 +1,4 @@
-const fs = require('fs')
-const lines = fs.readFileSync('./input', 'utf8').trim().split('\n')
+const lines = require('../lib/utils.js').lines(__dirname)
 
 function bisect (range, takeUpper) {
   let [min, max] = range

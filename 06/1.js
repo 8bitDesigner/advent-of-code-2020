@@ -1,5 +1,4 @@
-const fs = require('fs')
-const groups = fs.readFileSync('./input', 'utf8').split('\n\n')
+const groups = require('../lib/utils.js').lines(__dirname, '\n\n')
 
 console.log(groups.map(group => {
   return new Set(group.split('\n').flatMap(l => l.split(''))).size

@@ -1,4 +1,4 @@
-const lines = require('../lib/lines.js')()
+const lines = require('../lib/utils.js').lines(__dirname)
 
 function contains (type) {
   return lines

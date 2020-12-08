@@ -1,5 +1,4 @@
-const fs = require('fs')
-const lines = fs.readFileSync('./input', 'utf8').split('\n').filter(l => l)
+const lines = require('../lib/utils').lines(__dirname)
 const countLetter = (letter, str) => str.split('').filter(l => l === letter).length
 
 function toPassword (string) {

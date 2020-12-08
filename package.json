@@ -1,0 +1,23 @@
+{
+  "name": "advent-of-code-2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8bitDesigner/advent-of-code-2020.git"
+  },
+  "author": "Paul Sweeney <paul@8-bitdesign.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8bitDesigner/advent-of-code-2020/issues"
+  },
+  "homepage": "https://github.com/8bitDesigner/advent-of-code-2020#readme"
+}

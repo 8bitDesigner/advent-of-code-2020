@@ -1,6 +1,4 @@
-const fs = require('fs')
-const lines = fs.readFileSync('./input', 'utf8').trim().split('\n\n')
-
+const lines = require('../lib/utils.js').lines(__dirname, '\n\n')
 const groups = lines.map(group => group.split('\n').map(l => new Set(l.split('').sort())))
 
 console.log(
