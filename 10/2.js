@@ -1,33 +1,23 @@
-const input = require('../lib/utils.js').lines(__dirname).map(n => parseInt(n, 10))
+const lines = require('../lib/utils.js').lines(__dirname).map(n => parseInt(n, 10))
 const asc = (a, b) => a < b ? -1 : a > b ? 1 : 0
-const adaptors = [0, ...input.sort(asc), (Math.max(...input) + 3)]
 
-// Blatantly stolen from @timzero
-function countLeaves (root, nums, cache) {
-  if (nums.indexOf(root) === -1) {
-    console.log('root not in set', root)
+const adaptors = [0, ...lines, Math.max(...lines) + 3].sort(asc)
+
+function walk (current, cache = new Map()) {
+  const target = adaptors[adaptors.length - 1]
+
+  if (adaptors.indexOf(current) === -1) {
     return 0
-  } else if (root === Math.max(...nums)) {
-    console.log('found root', root)
+  } else if (current === target) {
     return 1
-  }
-
-  if (cache.has(root)) {
-    console.log('cached lookup for', root)
-    return cache.get(root)
+  } else if (cache.has(current)) {
+    return cache.get(current)
   } else {
-    console.log('counting ', root + 1, root + 2, root + 3)
-    const size = (
-      countLeaves(root + 1, nums, cache) +
-      countLeaves(root + 2, nums, cache) +
-      countLeaves(root + 3, nums, cache)
-    )
-
-    console.log('counting permutations from', root, size)
-    cache.set(root, size)
+    const size = walk(current + 1) + walk(current + 2) + walk(current + 3)
+    cache.set(current, size)
 
     return size
   }
 }
 
-console.log(countLeaves(100, adaptors, new Map()))
+console.log(walk(0))
