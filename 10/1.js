@@ -9,9 +9,6 @@ const gaps = adaptors.sort(asc).reduce((count, el, idx, array) => (
   count === 0 ? count : count.concat([el - array[idx - 1]])
 ), [])
 
-console.log(gaps.filter(is(1)).length)
-console.log(gaps.filter(is(3)).length)
-
 console.log(
   gaps.filter(is(1)).length *
   gaps.filter(is(3)).length
