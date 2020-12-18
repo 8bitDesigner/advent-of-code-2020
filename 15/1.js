@@ -1,5 +1,6 @@
 const fs = require('fs')
-const numbers = fs.readFileSync('./input', 'utf8').trim().split(',').map(n => parseInt(n, 10))
+const path = require('path')
+const numbers = fs.readFileSync(path.join(__dirname, './input'), 'utf8').trim().split(',').map(n => parseInt(n, 10))
 
 const spoken = new Map(numbers.map((n, idx) => ([n, [idx + 1]])))
 let last = numbers[numbers.length - 1]

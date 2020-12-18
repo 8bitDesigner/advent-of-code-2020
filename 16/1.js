@@ -24,7 +24,6 @@ console.log(
   nearbyTickets.flatMap(ticket => {
     return ticket.filter(number => {
       return rules.every(([name, validator]) => {
-        console.log('validating', name, number, validator(number))
         return validator(number) === false
       })
     })

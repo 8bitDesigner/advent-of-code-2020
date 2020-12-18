@@ -23,7 +23,6 @@ class Chip {
   }
 
   write (address, int) {
-    console.log('writing', address, int)
     if (!this.memory.has(address)) {
       this.memory.set(address, new Buffer(this.size))
     }
@@ -82,11 +81,7 @@ class Buffer {
 const instance = new Chip(36)
 
 input.forEach(instruction => {
-  console.log(instruction)
   instance.read(instruction)
-  instance.memory.forEach((buffer, addr) => {
-    console.log(`[${addr}] ${buffer.valueOf()}`)
-  })
 })
 
 console.log([...instance.memory.values()].map(buffer => buffer.valueOf()).reduce((a, b) => a + b))
