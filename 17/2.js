@@ -85,7 +85,6 @@ function cycle (active) {
 
   active.forEach(point => {
     const neighbors = getNeighbors(point, active)
-    console.log(neighbors.size)
     let activeCount = 0
 
     // Add any inactive neighbors to our list of points to check
